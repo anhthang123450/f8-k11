@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const categories = [
+                { id: 1, name: "Chuyên mục 1", parent: 0 },
+                { id: 2, name: "Chuyên mục 2", parent: 0 },
+                { id: 3, name: "Chuyên mục 3", parent: 0 },
+                { id: 4, name: "Chuyên mục 2.1", parent: 2 },
+                { id: 5, name: "Chuyên mục 2.2", parent: 2 },
+                { id: 6, name: "Chuyên mục 2.3", parent: 2 },
+                { id: 7, name: "Chuyên mục 3.1", parent: 3 },
+                { id: 8, name: "Chuyên mục 3.2", parent: 3 },
+                { id: 9, name: "Chuyên mục 3.3", parent: 3 },
+                { id: 10, name: "Chuyên mục 2.2.1", parent: 5 },
+                { id: 11, name: "Chuyên mục 2.2.2", parent: 5 },
+            ];
+            // b1: tạo ra bản 1 biến để lưu kết quả;
+            // b2: thêm key children vào mảng(bằng cách tạo ra 1 bản sao)
+            // b3: duyệt qua mảng
+            // b4: điều kiện để giữ lại mảng parent === 0;
+            // b5: điều kiện để chuyển thành mảng con parent === id sẽ push vào mảng children mới tạo
+            // const convertNested = (arr) => {
+            //     const result = [];
+            //     const items = [];
+            //     for (let i = 0; i < arr.length; i++) {
+            //         items.push({
+            //             id: arr[i].id,
+            //             name: arr[i].name,
+            //             parent: arr[i].parent,
+            //             children: [],
+            //         });
+            //     }
+            //     console.log(items);
+            //     for (let i = 0; i < items.length; i++) {
+            //         const item = items[i];
+            //         if (item.parent === 0) {
+            //             delete item.parent;
+            //             result.push(item);
+            //         } else {
+            //             for (let j = 0; j < items.length; j++) {
+            //                 if (items[j].id === item.parent) {
+            //                     items[j].children.push(item);
+            //                 }
+            //             }
+            //         }
+            //     }
+            //     console.log(result);
+            //     // return result;
+            // };
+            // convertNested(categories);
+
+            // bước 1: tạo ra mảng result để chứa kết quả
+            // bước 2: duyệt qua mảng lấy những mảng k bị cắt nếu parent === 0 thì push vào mảng result và thêm children: []
+            // bước 3: nếu parent === id thì push vào mảng children.
+
+            // function convertNested(arr) {
+            //     let result = [];
+            //     for (let i = 0; i < arr.length; i++) {
+            //         const item = arr[i];
+            //         if (item.parent === 0) {
+            //             result.push({
+            //                 id: item.id,
+            //                 name: item.name,
+            //                 children: [],
+            //             });
+            //         }
+            //     }
+            //     return result;
+            // }
+            // console.log(convertNested(categories));
+
+            // Bước 1: tạo ra mảng để lưu trữ kết quả => result
+            // Bước 2; tạo ra 1 bản sao của arr và thêm children: [] => items
+            // Bước 3: Duyệt qua mảng sao items để giứ lại phần tử gốc: parent === 0
+            // Bước 4: nếu parent !== 0 => tạo ra 1 vòng lặp để lặp ra từng phần tử so sánh id === parent thì push children vào result
+            // Bước 5: nếu children.length === 0 xóa children khỏi result
+
+            // const animals = ["pigs", "goats", "sheep"];
+            // const animals2 = ["pigs", "goats", "sheep"];
+            // function convertNested(arr) {
+            //     let result = [];
+            //     // tạo ra bản sao của arr thêm children []
+            //     const items = arr.map((item) => ({ ...item, children: [] }));
+            //     // lặp qua mảng sao lưu để giữ lại phần tử gốc
+            //     for (let i = 0; i < items.length; i++) {
+            //         if (items[i].parent === 0) {
+            //             result.push(items[i]);
+            //         } else {
+            //             for (let j = 0; j < items.length; j++) {
+            //                 if (items[j].id === items[i].parent) {
+            //                     items[j].children.push(items[i]);
+            //                     break;
+            //                 }
+            //                 // console.log(items[j]);
+            //                 // console.log(items[i]);
+            //             }
+            //         }
+            //     }
+            //     // console.log(items);
+            //     for (let i = 0; i < items.length; i++) {
+            //         if (items[i].children.length === 0) {
+            //             delete items[i].children;
+            //         }
+            //     }
+
+            //     return result;
+            // }
+
+            function convertNested(arr) {
+                // Bước 1: Tạo mảng chứa các phần tử gốc (parent === 0)
+                const result = [];
+                const items = arr.map((item) => ({
+                    id: item.id,
+                    name: item.name,
+                    children: [],
+                }));
+
+                // Bước 2: Xây dựng cấu trúc lồng nhau
+                for (let i = 0; i < arr.length; i++) {
+                    const item = arr[i];
+                    if (item.parent === 0) {
+                        result.push(items[i]);
+                    } else {
+                        for (let j = 0; j < items.length; j++) {
+                            // console.log(items[j]);
+
+                            if (items[j].id === item.parent) {
+                                items[j].children.push(items[i]);
+                                break; // Thoát khỏi vòng lặp khi tìm thấy nút cha
+                            }
+                        }
+                    }
+                }
+
+                // Bước 3: Xóa thuộc tính `children` rỗng
+                for (let i = 0; i < items.length; i++) {
+                    if (items[i].children.length === 0) {
+                        delete items[i].children;
+                    }
+                }
+
+                return result;
+            }
+            console.log(convertNested(categories));
+        </script>
+    </body>
+</html>

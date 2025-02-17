@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            ul,
+            ol,
+            li {
+                margin: 0;
+            }
+            .slides {
+                list-style: none;
+            }
+            .slide {
+                width: 100%;
+                height: 400px;
+            }
+            .title {
+                text-align: center;
+            }
+            .d-none {
+                display: none;
+            }
+
+            /* .btn {
+                position: relative;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            } */
+            .arrow {
+                width: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Slide show</h1>
+        <section id="hero-section">
+            <ul class="slides">
+                <!-- <li class="slide">
+                    <img class="slide-img" src="" alt="" />
+                    <h2 class="title"></h2>
+                </li> -->
+                <div class="dots"></div>
+            </ul>
+            <center class="btn">
+                <div class="arrow prev">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15.75 19.5 8.25 12l7.5-7.5"
+                        />
+                    </svg>
+                </div>
+                <div class="arrow next">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                        />
+                    </svg>
+                </div>
+            </center>
+        </section>
+        <script>
+            const slidesData = [
+                {
+                    image: "https://picsum.photos/id/25/800/400",
+                    title: "Slide 1",
+                },
+                {
+                    image: "https://picsum.photos/id/27/800/400",
+                    title: "Slide 2",
+                },
+                {
+                    image: "https://picsum.photos/id/28/800/400",
+                    title: "Slide 3",
+                },
+                {
+                    image: "https://picsum.photos/id/29/800/400",
+                    title: "Slide 4",
+                },
+            ];
+            const slides = document.querySelector(".slides");
+
+            function showSlide(n) {
+                for (let i = 0; i < slidesData.length; i++) {
+                    const slide = document.createElement("li");
+                    const slideImg = document.createElement("img");
+                    const title = document.createElement("h2");
+                    title.classList.add("title");
+                    title.textContent = slidesData[i].title;
+                    slide.classList.add("slide");
+                    slideImg.classList.add("slide-img");
+                    slide.appendChild(slideImg);
+                    slide.appendChild(title);
+                    slideImg.setAttribute("src", slidesData[i].image);
+                    slides.appendChild(slide);
+                    slide.style.display = "none";
+                    if (i === n) {
+                        slide.style.display = "block";
+                    }
+                }
+            }
+            showSlide(0);
+        </script>
+    </body>
+</html>

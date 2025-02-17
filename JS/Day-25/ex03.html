@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function Person(name) {
+                this.name = name;
+                this.greet1 = function () {
+                    console.log(`Hello, my name ${this.name}`);
+                };
+            }
+
+            Person.prototype.greet2 = function () {
+                console.log(`Hello, my name ${this.name}`);
+            };
+            const john = new Person("John");
+            const hoang = new Person("Hoang");
+            console.log(john.greet1 === hoang.greet1);
+            console.log(john.greet2 === hoang.greet2);
+            // john.greet();
+            // console.log(Object.getPrototypeOf(john));
+
+            console.log(john.hasOwnProperty("greet1"));
+            console.log(john.hasOwnProperty("greet2"));
+        </script>
+    </body>
+</html>

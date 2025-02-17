@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    width: 400px;
+    margin: 100px auto 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+#task-list {
+    margin-top: 20px;
+}
+
+span {
+    display: inline-block;
+    width: 100px;
+}

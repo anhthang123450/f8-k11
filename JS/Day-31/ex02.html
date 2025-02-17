@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .d-none {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="toggleForm()"><h1>Login</h1></button>
+
+        <form action="" id="register">
+            <h2>Register</h2>
+            <div class="form-group">
+                <label for="">Username</label>
+                <input type="text" />
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" />
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="text" />
+            </div>
+            <div class="form-group">
+                <label for="">Confirm Password</label>
+                <input type="text" />
+            </div>
+        </form>
+
+        <form action="" id="login" class="d-none">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" />
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="text" />
+            </div>
+        </form>
+
+        <script>
+            const register = document.querySelector("#register");
+
+            const login = document.querySelector("#login");
+
+            const h1 = document.getElementsByTagName("h1")[0];
+
+            const toggleForm = () => {
+                register.classList.toggle("d-none");
+                login.classList.toggle("d-none");
+                register.classList.contains("d-none")
+                    ? (h1.innerText = "Register")
+                    : (h1.innerText = "Login");
+            };
+        </script>
+    </body>
+</html>

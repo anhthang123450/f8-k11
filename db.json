@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "email": "thang@gmail.com",
+      "password": "$2a$10$iJxkaUR6pnJAiE1/E2plYeustw.KoXT6.LbbFjxHXPkYwhoN2qtbq",
+      "id": 1
+    }
+  ],
+  "tasks": [
+    {
+      "title": "rửa bát",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "giặt quần áo",
+      "completed": false,
+      "id": 3
+    }
+  ],
+  "products": []
+}

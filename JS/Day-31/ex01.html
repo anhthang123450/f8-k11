@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Tiêu đề chính</h1>
+        <h2>Tiêu đề cấp 2</h2>
+
+        <script>
+            let h1Element = document.getElementsByTagName("h1")[0];
+            h1Element.style.backgroundColor = "red";
+            let h2Element = document.getElementsByTagName("h2")[0];
+            console.log(h2Element);
+            h2Element.style.cssText =
+                "background-color: red; font-size: 24px; border-radius: 999px";
+        </script>
+    </body>
+</html>

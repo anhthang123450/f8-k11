@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function Person(name, address) {
+                this.name = name;
+                this.address = address;
+
+                this.getInfo = function () {
+                    console.log(`name: ${this.name}, address: ${this.address}`);
+                };
+            }
+
+            const student1 = new Person("Thang", "Ha Noi");
+            console.log(student1.getInfo());
+
+            const myObj = { title: "abc" };
+            console.log(myObj);
+
+            function Cart(products, userId) {
+                this.products = products;
+                this.userId = userId;
+
+                this.getTotal = function () {
+                    return this.products.reduce((acc, cur) => {
+                        acc += cur.quantity * cur.price;
+                        return acc;
+                    }, 0);
+                };
+            }
+
+            const products = [
+                { id: 1, title: "tomato", quantity: 4, price: 1 },
+                { id: 2, title: "banana", quantity: 2, price: 2 },
+                { id: 3, title: "apple", quantity: 4, price: 1 },
+            ];
+
+            const cartOfThang = new Cart(products, "123");
+            console.log(cartOfThang.getTotal());
+        </script>
+    </body>
+</html>
