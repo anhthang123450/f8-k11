@@ -4,19 +4,38 @@
       "email": "thang@gmail.com",
       "password": "$2a$10$iJxkaUR6pnJAiE1/E2plYeustw.KoXT6.LbbFjxHXPkYwhoN2qtbq",
       "id": 1
-    }
-  ],
-  "tasks": [
+    },
     {
-      "title": "rửa bát",
-      "completed": false,
+      "email": "minhthang989803@gmail.com",
+      "password": "$2a$10$or69E73K.v6ly00crQWUeOXgnlbr.yMgrgtnWmvrbN7GFL9x9tr1y",
       "id": 2
     },
     {
-      "title": "giặt quần áo",
-      "completed": false,
+      "email": "nmthang@gmail.com",
+      "password": "$2a$10$UkynjY5messlRjoeJM32m.UrUbh/8KrOSz0FesMYlxryPwsrQtoxC",
       "id": 3
+    },
+    {
+      "email": "thang12@gmail.com",
+      "password": "$2a$10$iXfaSWzxw3ukzdRds4vn9.P2uvlDRmKIOR1qHG9V84cd5dHVxAzKC",
+      "id": 4
+    },
+    {
+      "email": "thang45@gmail.com",
+      "password": "$2a$10$slINOpPXwsyjWaz3wGHJkOdxnrVXFwW7nhjpDwN/qz8Us9HKghvCm",
+      "id": 5
+    },
+    {
+      "email": "thang98@gmail.com",
+      "password": "$2a$10$t64nKSsJ7qN7FMKDEufnNeBlL1.ckz3t6H4fx1mR5dXaeUcva0UUm",
+      "id": 6
+    },
+    {
+      "email": "abc@gmail.com",
+      "password": "$2a$10$zrfTI675fKBabSUyWxVEV.CH6toG1myIjHiRr8WjqOdP0VHNdmbAG",
+      "id": 7
     }
   ],
+  "tasks": [],
   "products": []
 }

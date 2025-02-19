@@ -27,3 +27,5 @@ router
     .notFound(() => render(NotFound));
 
 router.resolve();
+
+export default router;
